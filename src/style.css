@@ -1,0 +1,21 @@
+/* see https://slides.com/otsukayuhi/reset-css-2019#/19 */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  vertical-align: bottom;
+}
