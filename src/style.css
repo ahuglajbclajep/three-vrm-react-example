@@ -19,3 +19,8 @@ ol {
 img {
   vertical-align: bottom;
 }
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
