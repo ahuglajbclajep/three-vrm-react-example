@@ -10,6 +10,7 @@
     "lint:css": "stylelint --fix 'src/**/*.css'"
   },
   "dependencies": {
+    "@pixiv/three-vrm": "^0.3.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-three-fiber": "^4.0.19",
