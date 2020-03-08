@@ -1,7 +1,7 @@
 {
-  "name": "my-react-template",
+  "name": "three-vrm-react-example",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple example of react-three-fiber + three-vrm.",
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --open",

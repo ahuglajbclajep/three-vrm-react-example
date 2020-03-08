@@ -1,5 +1,5 @@
-# my-react-template
+# three-vrm-react-example
 
-My React + TypeScript template for [VS Code](https://code.visualstudio.com).
+A simple example of [react-three-fiber](https://github.com/react-spring/react-three-fiber) + [three-vrm](https://github.com/pixiv/three-vrm).
 
-[vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), [vscode-stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) and [prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) are required.
+Try here: <https://ahuglajbclajep.github.io/three-vrm-react-example/>
