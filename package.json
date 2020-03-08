@@ -7,7 +7,8 @@
     "start": "webpack-dev-server --open",
     "build": "webpack -p",
     "lint:ts": "eslint --fix 'src/**/*.[tj]s{,x}'",
-    "lint:css": "stylelint --fix 'src/**/*.css'"
+    "lint:css": "stylelint --fix 'src/**/*.css'",
+    "deploy": "rm -rf dist && npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@pixiv/three-vrm": "^0.3.2",
@@ -28,6 +29,7 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.0",
+    "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^4.0.0-beta.11",
     "mini-css-extract-plugin": "^0.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",

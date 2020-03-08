@@ -16,7 +16,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <input type="file" accept=".vrm" onChange={handleFileChange} />
+      <input id="vrm" type="file" accept=".vrm" onChange={handleFileChange} />
       <Canvas camera={{ position: [0, 1, 2] }}>
         <directionalLight />
         <VRM vrm={vrm} />
