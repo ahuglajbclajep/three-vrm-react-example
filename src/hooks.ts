@@ -8,7 +8,10 @@ const useVRM = (): [VRM | null, (_: string) => void] => {
 
   const loadVRM = (url: string): void => {
     loader.load(url, gltf => {
-      VRM.from(gltf).then(vrm => setVRM(vrm));
+      VRM.from(gltf).then(vrm => {
+        vrm.scene.rotation.y = Math.PI;
+        setVRM(vrm);
+      });
     });
   };
 
