@@ -25,3 +25,7 @@ body {
   left: 0;
   max-height: 26px;
 }
+
+#root canvas:focus {
+  outline: none;
+}

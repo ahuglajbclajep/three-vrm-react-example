@@ -1,5 +1,6 @@
 import React from "react";
 import { Canvas } from "react-three-fiber";
+import Controls from "./Controls";
 import { useVRM } from "./hooks";
 import VRM from "./VRM";
 
@@ -17,9 +18,10 @@ const App: React.FC = () => {
   return (
     <>
       <input id="vrm" type="file" accept=".vrm" onChange={handleFileChange} />
-      <Canvas camera={{ position: [0, 1, 2] }}>
+      <Canvas camera={{ position: [0, 1, 3] }}>
         <directionalLight />
         <VRM vrm={vrm} />
+        <Controls />
       </Canvas>
     </>
   );
