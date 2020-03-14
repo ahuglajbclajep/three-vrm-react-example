@@ -30,7 +30,9 @@ const Controls: React.FC = () => {
     <orbitControls
       ref={controls}
       args={[camera, gl.domElement]}
+      zoomSpeed={0.5}
       enableDamping
+      dampingFactor={0.2}
       target={new Vector3(0, 1, -2)}
     />
   );
