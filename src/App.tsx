@@ -1,5 +1,6 @@
 import React from "react";
 import { Canvas } from "react-three-fiber";
+import Controls from "./Controls";
 import { useVRM } from "./hooks";
 import VRM from "./VRM";
 
@@ -20,6 +21,7 @@ const App: React.FC = () => {
       <Canvas camera={{ position: [0, 1, 2] }}>
         <directionalLight />
         <VRM vrm={vrm} />
+        <Controls />
       </Canvas>
     </>
   );
