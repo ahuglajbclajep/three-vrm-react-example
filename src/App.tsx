@@ -7,12 +7,13 @@ import VRM from "./VRM";
 const App: React.FC = () => {
   const [vrm, loadVRM] = useVRM();
 
-  const handleFileChange = (
+  const handleFileChange = async (
     event: React.ChangeEvent<HTMLInputElement>
-  ): void => {
+  ): Promise<void> => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const url = URL.createObjectURL(event.target.files![0]);
-    loadVRM(url);
+    await loadVRM(url);
+    URL.revokeObjectURL(url);
   };
 
   return (

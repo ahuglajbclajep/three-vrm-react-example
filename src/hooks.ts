@@ -1,19 +1,18 @@
 import { VRM } from "@pixiv/three-vrm";
 import { useRef, useState } from "react";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-const useVRM = (): [VRM | null, (_: string) => void] => {
+const useVRM = (): [VRM | null, (url: string) => Promise<void>] => {
   const { current: loader } = useRef(new GLTFLoader());
   const [vrm, setVRM] = useState<VRM | null>(null);
 
-  const loadVRM = (url: string): void => {
-    loader.load(url, gltf => {
-      VRM.from(gltf).then(vrm => {
+  const loadVRM = (url: string): Promise<void> =>
+    new Promise((resolve: (_: GLTF) => void) => loader.load(url, resolve))
+      .then(gltf => VRM.from(gltf))
+      .then(vrm => {
         vrm.scene.rotation.y = Math.PI;
         setVRM(vrm);
       });
-    });
-  };
 
   return [vrm, loadVRM];
 };
