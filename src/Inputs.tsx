@@ -8,10 +8,13 @@ type Props = {
 
 const Inputs: React.FC<Props> = ({ onFileChange, checked, onCheckChange }) => (
   <div id="input-container">
-    <input type="file" accept=".vrm" onChange={onFileChange} />
+    <label className="file-button">
+      <input type="file" accept=".vrm" onChange={onFileChange} />
+      load VRM
+    </label>
     <label>
       <input type="checkbox" checked={checked} onChange={onCheckChange} />
-      grid
+      show grid
     </label>
   </div>
 );
