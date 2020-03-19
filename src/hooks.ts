@@ -1,5 +1,5 @@
 import { VRM } from "@pixiv/three-vrm";
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 const useVRM = (): [VRM | null, (url: string) => Promise<void>] => {
@@ -17,4 +17,12 @@ const useVRM = (): [VRM | null, (url: string) => Promise<void>] => {
   return [vrm, loadVRM];
 };
 
-export { useVRM };
+const useToggle = (initialState: boolean): [boolean, () => void] => {
+  const [state, setState] = useState(initialState);
+
+  const toggle = useCallback(() => setState(prev => !prev), []);
+
+  return [state, toggle];
+};
+
+export { useVRM, useToggle };

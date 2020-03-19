@@ -1,13 +1,13 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { Canvas } from "react-three-fiber";
 import Controls from "./Controls";
-import { useVRM } from "./hooks";
+import { useToggle, useVRM } from "./hooks";
 import Inputs from "./Inputs";
 import VRM from "./VRM";
 
 const App: React.FC = () => {
   const [vrm, loadVRM] = useVRM();
-  const [showGrid, setShowGrid] = useState(false);
+  const [showGrid, showGridToggle] = useToggle(false);
 
   const handleFileChange = useCallback(
     async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,14 +19,12 @@ const App: React.FC = () => {
     [loadVRM]
   );
 
-  const handleCheckChange = useCallback(() => setShowGrid(prev => !prev), []);
-
   return (
     <>
       <Inputs
         onFileChange={handleFileChange}
         checked={showGrid}
-        onCheckChange={handleCheckChange}
+        onCheckChange={showGridToggle}
       />
       <Canvas camera={{ position: [0, 1, 2] }}>
         <directionalLight />
