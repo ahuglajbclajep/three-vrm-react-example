@@ -15,30 +15,30 @@ module.exports = (env, { mode }) => {
         {
           test: /\.[tj]sx?$/,
           use: "ts-loader",
-          exclude: /node_modules/
+          exclude: /node_modules/,
         },
         {
           test: /\.css$/,
-          use: [MiniCssExtractPlugin.loader, `css-loader?sourceMap=${dev}`]
-        }
-      ]
+          use: [MiniCssExtractPlugin.loader, `css-loader?sourceMap=${dev}`],
+        },
+      ],
     },
     plugins: [
       new MiniCssExtractPlugin(),
       new HtmlWebpackPlugin({
         template: "src/index.ejs",
-        title: process.env.npm_package_name
-      })
+        title: process.env.npm_package_name,
+      }),
     ],
     resolve: { extensions: [".ts", ".tsx", ".js", ".jsx"] },
     optimization: {
-      minimizer: [new TerserPlugin(), new OptimizeCssAssetsPlugin()]
+      minimizer: [new TerserPlugin(), new OptimizeCssAssetsPlugin()],
     },
     devtool: dev ? "inline-source-map" : false,
     devServer: {
       contentBase: "./dist",
       overlay: true,
-      watchContentBase: true
-    }
+      watchContentBase: true,
+    },
   };
 };

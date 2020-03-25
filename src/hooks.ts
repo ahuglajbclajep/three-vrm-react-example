@@ -8,8 +8,8 @@ const useVRM = (): [VRM | null, (url: string) => Promise<void>] => {
 
   const loadVRM = (url: string): Promise<void> =>
     new Promise((resolve: (_: GLTF) => void) => loader.load(url, resolve))
-      .then(gltf => VRM.from(gltf))
-      .then(vrm => {
+      .then((gltf) => VRM.from(gltf))
+      .then((vrm) => {
         vrm.scene.rotation.y = Math.PI;
         setVRM(vrm);
       });
@@ -20,7 +20,7 @@ const useVRM = (): [VRM | null, (url: string) => Promise<void>] => {
 const useToggle = (initialState: boolean): [boolean, () => void] => {
   const [state, setState] = useState(initialState);
 
-  const toggle = useCallback(() => setState(prev => !prev), []);
+  const toggle = useCallback(() => setState((prev) => !prev), []);
 
   return [state, toggle];
 };
