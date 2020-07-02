@@ -3,29 +3,28 @@
   "parserOptions": { "project": "tsconfig.json" },
   "env": { "browser": true, "es6": true, "worker": true }, // for allowJs
   "settings": { "react": { "version": "detect" } },
-  "plugins": ["@typescript-eslint", "react-hooks"],
+  "plugins": ["@typescript-eslint"],
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "prettier",
     "prettier/@typescript-eslint",
     "prettier/react"
   ],
   "rules": {
-    // see https://reactjs.org/docs/hooks-rules
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "@typescript-eslint/no-unused-vars": "off",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "@typescript-eslint/no-unused-vars": "off"
   },
   "overrides": [
     // see https://github.com/typescript-eslint/typescript-eslint/issues/906
     {
       "files": ["*.js", "*.jsx"],
-      "rules": { "@typescript-eslint/explicit-function-return-type": "off" }
+      "rules": { "@typescript-eslint/explicit-module-boundary-types": "off" }
     }
-  ]
+  ],
+  // for vscode-eslint
+  "ignorePatterns": ["dist", "*.config.js"]
 }
