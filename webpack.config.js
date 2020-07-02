@@ -1,5 +1,5 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin"); // from webpack
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
@@ -9,12 +9,12 @@ module.exports = (env, { mode }) => {
   return {
     // see https://github.com/webpack/webpack-dev-server/issues/1327
     mode: "development",
-    entry: "./src/index.tsx",
+    entry: "./src/index",
     module: {
       rules: [
         {
           test: /\.[tj]sx?$/,
-          use: "ts-loader",
+          loader: "ts-loader",
           exclude: /node_modules/,
         },
         {
@@ -24,11 +24,11 @@ module.exports = (env, { mode }) => {
       ],
     },
     plugins: [
-      new MiniCssExtractPlugin(),
       new HtmlWebpackPlugin({
         template: "src/index.ejs",
         title: process.env.npm_package_name,
       }),
+      new MiniCssExtractPlugin(),
     ],
     resolve: { extensions: [".ts", ".tsx", ".js", ".jsx"] },
     optimization: {
@@ -37,6 +37,7 @@ module.exports = (env, { mode }) => {
     devtool: dev ? "inline-source-map" : false,
     devServer: {
       contentBase: "./dist",
+      // host: "0.0.0.0", // for debugging on mobile devices
       overlay: true,
       watchContentBase: true,
     },

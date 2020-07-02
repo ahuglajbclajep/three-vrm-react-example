@@ -11,7 +11,9 @@
     "strict": true,
     // "noImplicitAny": false, // for checkJs
     "moduleResolution": "node",
-    "esModuleInterop": true
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
   },
   // see https://github.com/typescript-eslint/typescript-eslint/issues/890
   "include": ["src/**/*"]

@@ -6,9 +6,9 @@
   "scripts": {
     "start": "webpack-dev-server --open",
     "build": "rm -rf dist && webpack -p",
-    "lint:ts": "eslint --fix 'src/**/*.[tj]s{,x}'",
-    "lint:css": "stylelint --fix 'src/**/*.css'",
-    "format": "prettier --ignore-path .gitignore --write .",
+    "lint:format": "prettier -c --ignore-path .gitignore .",
+    "lint:ts": "eslint 'src/**/*.[tj]s{,x}'",
+    "lint:css": "stylelint -f verbose 'src/**'",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
@@ -44,5 +44,6 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
-  }
+  },
+  "prettier": {}
 }
