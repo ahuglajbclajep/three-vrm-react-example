@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin"); // from webpack
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const package = require("./package.json");
 
 /** @type {(env: typeof process.env, argv: { mode?: string }) => import("webpack").Configuration} */
 module.exports = (env, { mode }) => {
@@ -19,14 +20,21 @@ module.exports = (env, { mode }) => {
         },
         {
           test: /\.css$/,
-          use: [MiniCssExtractPlugin.loader, `css-loader?sourceMap=${dev}`],
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: { esModule: true },
+            },
+            "css-loader",
+          ],
         },
       ],
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: "src/index.ejs",
-        title: process.env.npm_package_name,
+        title: package.name,
+        desc: package.description,
+        scriptLoading: "defer",
       }),
       new MiniCssExtractPlugin(),
     ],
